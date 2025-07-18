@@ -2,8 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
-import joblib
-import os
+from sklearn.metrics import accuracy_score
 
 # Load data
 train_df = pd.read_csv("data/splits/train.csv")
@@ -47,6 +46,9 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_val)
 
 # Evaluate
+accuracy= accuracy_score(y_val,y_pred)
+print(f"Accuracy: {accuracy: .2f}")
+
 print("Logistic Regression Performance:")
 print(classification_report(y_val, y_pred))
 

@@ -35,4 +35,10 @@ param_grid = {
 grid = GridSearchCV(pipeline, param_grid, cv=3, scoring='f1', verbose=1, n_jobs=-1)
 grid.fit(X, y)
 
+print("✅ Best Hyperparameters:")
+print(grid.best_params_)
 
+print(f"\n✅ Best F1 Score from GridSearchCV: {grid.best_score_:.4f}")
+
+print("\n✅ Best Model Pipeline:")
+print(grid.best_estimator_)
